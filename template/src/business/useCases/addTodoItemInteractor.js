@@ -6,7 +6,7 @@ import { Todo } from '../entities/Todo';
  * @param {object} provider provider object
  */
 export const addTodoItemInteractor = ({ applicationContext, title, description }) => {
-  const todo = new Todo({ title, description }).toRawObject();
+  const todo = new Todo({ title, description }).validate().toRawObject();
 
   const todos = [];
   const currentTodos = applicationContext.getPersistence().getItem({

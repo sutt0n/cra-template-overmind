@@ -1,4 +1,4 @@
-export const getItem = ({ applicationContext, key }) => {
+export const getItem = ({ key }) => {
   const value = localStorage.getItem(key);
 
   if (value) {

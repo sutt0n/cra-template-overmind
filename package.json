@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "joi": "^17.3.0",
     "overmind": "^26.0.0",
     "overmind-react": "^27.0.0",
     "react": "^17.0.1",

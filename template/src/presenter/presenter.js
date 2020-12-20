@@ -2,9 +2,9 @@ import {
   createStateHook,
   createActionsHook,
   createEffectsHook,
-  createReactionHook
-} from 'overmind-react'
-import { state } from './state'
+  createReactionHook,
+} from "overmind-react";
+import { state } from "./state";
 import { applicationContext } from '../applicationContext';
 import { addTodoItemAction } from './actions/addTodoItemAction';
 import { updateTodoTitleAction } from './actions/updateTodoTitleAction';
@@ -14,16 +14,16 @@ import { updateTodoDescriptionAction } from './actions/updateTodoDescriptionActi
 const actions = {
   addTodoItemAction,
   updateTodoTitleAction,
-  updateTodoDescriptionAction
+  updateTodoDescriptionAction,
 };
 
 export const config = {
   state,
   actions,
-  effects: applicationContext
-}
+  effects: applicationContext,
+};
 
-export const useState = createStateHook()
-export const useActions = createActionsHook()
-export const useEffects = createEffectsHook()
-export const useReaction = createReactionHook()
+export const useState = createStateHook();
+export const useActions = createActionsHook();
+export const useEffects = createEffectsHook();
+export const useReaction = createReactionHook();

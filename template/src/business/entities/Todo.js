@@ -1,3 +1,4 @@
+import joi from 'joi';
 import { Entity } from './Entity';
 
 export class Todo extends Entity {
@@ -6,9 +7,10 @@ export class Todo extends Entity {
 
     this.title = title;
     this.description = description;
-  }
 
-  getValidationRules() {
-    return {};
+    this.validationRules = {
+      title: joi.string().min(1).required(),
+      description: joi.string().min(1).required(),
+    };
   }
 }
