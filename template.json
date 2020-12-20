@@ -1,0 +1,19 @@
+{
+  "package": {
+    "dependencies": {
+      "overmind": "^26.0.0",
+      "overmind-react": "^27.0.0",
+      "react": "^17.0.1",
+      "react-dom": "^17.0.1",
+      "react-scripts": "4.0.1"
+    },
+    "scripts": {
+      "serve": "serve -s build",
+      "build-and-serve": "npm run build && npm run serve"
+    },
+    "eslintConfig": {
+      "extends": ["react-app", "plugin:jsx-a11y/recommended"],
+      "plugins": ["jsx-a11y"]
+    }
+  }
+}
