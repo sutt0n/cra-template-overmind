@@ -1,9 +1,9 @@
 export const getItem = ({ applicationContext, key }) => {
   const value = localStorage.getItem(key);
 
-  if(value) {
+  if (value) {
     return JSON.parse(value);
   }
 
   return null;
-}
+};

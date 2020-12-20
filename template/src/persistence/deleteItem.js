@@ -1,3 +1,1 @@
-export const deleteItem = ({ applicationContext, key }) => {
-  return localStorage.deleteItem(key);
-}
+export const deleteItem = ({ applicationContext, key }) => localStorage.deleteItem(key);

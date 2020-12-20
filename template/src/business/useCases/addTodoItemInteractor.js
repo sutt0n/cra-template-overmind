@@ -2,16 +2,19 @@ import { Todo } from '../entities/Todo';
 
 /**
  * use-case for adding a todo item to persistence
- * 
- * @param {object} provider provider object 
+ *
+ * @param {object} provider provider object
  */
 export const addTodoItemInteractor = ({ applicationContext, title, description }) => {
   const todo = new Todo({ title, description }).toRawObject();
 
-  let todos = [];
-  const currentTodos = applicationContext.getPersistence().getItem({ key: 'todos', defaultValue: [] });
-  
-  if(currentTodos) {
+  const todos = [];
+  const currentTodos = applicationContext.getPersistence().getItem({
+    key: 'todos',
+    defaultValue: [],
+  });
+
+  if (currentTodos) {
     todos.push(...currentTodos);
   }
 
