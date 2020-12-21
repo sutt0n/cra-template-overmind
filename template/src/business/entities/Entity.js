@@ -1,10 +1,11 @@
 import joi from 'joi';
+import { pick, isEmpty } from "lodash";
 
 export class Entity {
   validationRules = {};
 
   constructor() {
-    if (this.constructor.name === 'Entity') {
+    if (this.constructor.name === "Entity") {
       throw new Error('Cannot instantiate base class "Entity"');
     }
   }
@@ -13,31 +14,28 @@ export class Entity {
     return joi.object().keys(this.validationRules);
   }
 
+  isValid() {
+    const validate = this.getValidationRules().validate(
+      pick(this, Object.keys(this.validationRules))
+    );
+
+    return isEmpty(validate.error) && isEmpty(validate.errors);
+  }
+
   validate() {
-    return this.getValidationRules().validate(this.toRawObject());
+    const validate = this.getValidationRules().validate(
+      pick(this, Object.keys(this.validationRules))
+    );
+
+    if (validate.error) {
+      // TODO: return formatted
+      // throw new Error(validate.error);
+    }
+
+    return this;
   }
 
   toRawObject() {
-    const keys = Object.keys(this);
-    const obj = {};
-
-    keys.forEach(key => {
-      const value = this[key];
-      if (Array.isArray(value)) {
-        obj[key] = value.map(v => {
-          if (typeof v === 'string' || v instanceof String) {
-            return v;
-          }
-
-          return this.toRawObject(v);
-        });
-      } else if (typeof value === 'object' && value !== null) {
-        obj[key] = this.toRawObject(value);
-      } else {
-        obj[key] = value;
-      }
-    });
-
-    return obj;
+    return pick(this, Object.keys(this.validationRules));
   }
 }
