@@ -9,6 +9,7 @@ describe("addTodoItemAction", () => {
   beforeEach(() => {
     addTodoItemInteractorStub = jest.fn().mockReturnValue([mockTodo]);
 
+    // TODO: refactor
     overmind = createOvermindMock(
       {
         ...config,
