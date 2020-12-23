@@ -7,7 +7,7 @@ import { Todo } from '../entities/Todo';
  */
 export const addTodoItemInteractor = ({ applicationContext, title, description }) => {
   const todo = new Todo({ title, description }).validate().toRawObject();
-
+  
   const todos = [];
   const currentTodos = applicationContext.getPersistence().getItem({
     key: 'todos',
